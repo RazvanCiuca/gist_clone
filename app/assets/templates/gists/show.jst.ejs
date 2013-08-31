@@ -1,0 +1,15 @@
+<div class="gistDetail">
+	<%=gist.escape('title')%>
+
+	<input type="submit" value="Edit" class="edit"
+	data-id="<%=gist.escape('id')%>">
+
+	<% if (!isFavorited) {%>
+		<input type="submit" value="Add to Favorites!" class="favoriteButton"
+		data-id="<%=gist.escape('id')%>">
+	<% } else { %>
+		<input type="submit" value="Remove from Favorites!" class="unFavoriteButton"
+		data-id="<%=gist.escape('id')%>">
+	<% } %>
+
+</div>

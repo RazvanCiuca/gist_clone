@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SessionsTemplate</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="errors">
+    <% flash[:errors].try(:each) do |error| %>
+      <%= error %>
+    <% end %>
+  </div>
+  <%= yield %>
+
+
+	<% if current_user %>
+	-------------------------------------------------------------------------------------------------------------------------------------------
+  <div>
+    <%= button_to "Logout", session_path, :method => "delete" %>
+    Current User: <%= current_user.username %>
+  </div>
+	<% end %>
+</body>
+</html>
